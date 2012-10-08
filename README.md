@@ -4,9 +4,9 @@ Jumper-Examples
 Find here some example of use and demos for [Jumper](https://github.com/Yonaba/Jumper) made with differents
 Lua-based game engines and frameworks.
 Each of the following framework will have their relevant demos in __a dedicated branch__ of this repository.
-* [Love2d](http://love2d.org)
-* [Corona] (http://www.coronalabs.com)
-* [Gideros] (http://www.giderosmobile.com)
+* [Love2d](http://love2d.org) - Go to [Love2D Branch](https://github.com/Yonaba/Jumper-Examples/tree/love2d)
+* [Corona] (http://www.coronalabs.com) - Go to [Corona Branch](https://github.com/Yonaba/Jumper-Examples/tree/corona)
+* [Gideros] (http://www.giderosmobile.com) - Go to [Gideros branch](https://github.com/Yonaba/Jumper-Examples/tree/gideros)
 
 ##Copy
 You can retrieve files from this repository with one of the following bash script:
@@ -31,7 +31,7 @@ Contributing with your own examples of use for [Jumper](https://github.com/Yonab
 Just fork the repository, make your changes and send a pull request.
 
 ##License##
-This work is under [MIT-LICENSE][]<br/>
+This work is under [MIT-LICENSE](http://www.opensource.org/licenses/mit-license.php)<br/>
 Copyright (c) 2012 Roland Yonaba
 
     Permission is hereby granted, free of charge, to any person obtaining a
