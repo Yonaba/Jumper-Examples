@@ -4,7 +4,7 @@ Jumper-Examples
 Find here some example of use and demos for [Jumper](https://github.com/Yonaba/Jumper) made with differents
 Lua-based game engines and frameworks.
 Each of the following framework will have their relevant demos in __a dedicated branch__ of this repository.
-* [Love2d](http://love2d.org) (version *0.8.0* a.k.a *Rubber Piggy*)
+* [Love2d](http://love2d.org)
 * [Corona] (http://www.coronalabs.com)
 * [Gideros] (http://www.giderosmobile.com)
 
