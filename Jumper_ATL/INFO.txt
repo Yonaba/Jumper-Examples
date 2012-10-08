@@ -1,0 +1,15 @@
+Copyright (c) 2012 Zeliarden & Roland Yonaba
+Work released under the terms of the MIT-License
+
+Programming Language: 
+	Lua (http://www.lua.org) - MIT Licensed
+
+Framework : 
+	Löve2D Framework (http://love2d.org)
+	Copyright (c) 2006-2012 LOVE Development Team, ZLIB Licensed
+	
+Arts & Design: 
+	map.tmx - Generated with Tiled
+		Tiled Map Editor (http://www.mapeditor.org)
+		Copyright (c) 2008-2012 Thorbjørn Lindeijer, GNU GPL Licensed
+	Sprites, Assets from Zeliarden
