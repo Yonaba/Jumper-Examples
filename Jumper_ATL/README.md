@@ -19,5 +19,5 @@ Thanks to
 
 ##License##
 This work is under [MIT-LICENSE](http://www.opensource.org/licenses/mit-license.php)<br/>
-Copyright (c) 2012 Zeliarden & Roland Yonaba
-See [Info.md](https://github.com/Yonaba/Jumper-Examples/blob/love2d/Jumper_ATL/INFO.md) for more details.
+Copyright (c) 2012 Zeliarden & Roland Yonaba<br/>
+See [LICENSE.md](https://github.com/Yonaba/Jumper-Examples/blob/love2d/Jumper_ATL/LICENSE.md) for more details.
