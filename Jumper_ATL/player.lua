@@ -81,6 +81,7 @@ function player.move(dt)
         player.path = nil
       end        
     end
+    player.state[player.dir]:update(dt)
   end
 end
 
