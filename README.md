@@ -9,21 +9,24 @@ Each of the following framework will have their relevant demos in __a dedicated 
 * [Gideros] (http://www.giderosmobile.com) - Go to [Gideros branch](https://github.com/Yonaba/Jumper-Examples/tree/gideros)
 
 ##Copy
-You can retrieve files from this repository with one of the following bash script:
+You can retrieve all files from this repository with one of the following bash scripts:
 
 ```bash
 git clone git@github.com:Yonaba/Jumper-Examples.git
 cd Jumper-Examples
+git checkout branchName
 git submodule update --init --recursive
 ````
 
-Or :
+Or : 
 
 ```bash
-git clone git@github.com:Yonaba/Jumper-Examples.git --recursive
+git clone -b branchName git@github.com:Yonaba/Jumper-Examples.git --recursive
 ````
 
-__Note__: You can also download these files as a [zip](https://github.com/Yonaba/Jumper-Examples/zipball/master) or [tarball](https://github.com/Yonaba/Jumper-Examples/tarball/master).<br/>
+__Notes__: 
+* Make sure to replace <tt>branchName</tt> in the script above with the branch you are retrieving files from
+* You can also download these files as a [zip](https://github.com/Yonaba/Jumper-Examples/zipball/master) or [tarball](https://github.com/Yonaba/Jumper-Examples/tarball/master).<br/>
 In this case, though, you will have to add __manually__ submodules files.
 
 ##Contribute
@@ -32,23 +35,4 @@ Just fork the repository, make your changes and send a pull request.
 
 ##License##
 This work is under [MIT-LICENSE](http://www.opensource.org/licenses/mit-license.php)<br/>
-Copyright (c) 2012 Roland Yonaba
-
-    Permission is hereby granted, free of charge, to any person obtaining a
-    copy of this software and associated documentation files (the
-    "Software"), to deal in the Software without restriction, including
-    without limitation the rights to use, copy, modify, merge, publish,
-    distribute, sublicense, and/or sell copies of the Software, and to
-    permit persons to whom the Software is furnished to do so, subject to
-    the following conditions:
-
-    The above copyright notice and this permission notice shall be included
-    in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Copyright (c) 2012 Roland Yonaba <br/>.
