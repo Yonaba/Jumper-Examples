@@ -24,10 +24,7 @@ Or :
 git clone -b branchName git@github.com:Yonaba/Jumper-Examples.git --recursive
 ````
 
-__Notes__: 
-* Make sure to replace <tt>branchName</tt> in the script above with the branch you are retrieving files from
-* You can also download these files as a [zip](https://github.com/Yonaba/Jumper-Examples/zipball/master) or [tarball](https://github.com/Yonaba/Jumper-Examples/tarball/master).<br/>
-In this case, though, you will have to add __manually__ submodules files.
+__Notes__: Make sure to replace <tt>branchName</tt> in the script above with the branch you are retrieving files from
 
 ##Contribute
 Contributing with your own examples of use for [Jumper](https://github.com/Yonaba/Jumper) will be very appreciated. <br/>
