@@ -8,7 +8,7 @@ Find here some example of use and demos for [Jumper](https://github.com/Yonaba/J
 You can make a local copy of this single branch with the following bash command :
 
 ```bash
-git clone -b love2d git@github.com:Yonaba/Jumper-Examples.git --recursive
+git clone -b love2d git://github.com/Yonaba/Jumper-Examples --recursive
 ```
 
 ###Download

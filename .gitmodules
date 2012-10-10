@@ -1,6 +1,6 @@
 [submodule "Jumper_ATL/lib/AdvTiledLoader"]
 	path = Jumper_ATL/lib/AdvTiledLoader
-	url = git@github.com:Kadoba/Advanced-Tiled-Loader.git
+	url = git://github.com/Kadoba/Advanced-Tiled-Loader
 [submodule "Jumper_ATL/lib/anim8"]
 	path = Jumper_ATL/lib/anim8
-	url = git@github.com:kikito/anim8.git
+	url = git://github.com/kikito/anim8
