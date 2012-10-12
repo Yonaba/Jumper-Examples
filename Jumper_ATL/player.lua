@@ -66,21 +66,25 @@ function player.orderMove(path)
   player.there = true -- whether or not the player has reached a step
 end
 
--- Moves the player, checks each step if the player 
+-- Moves the player, checks after each step move if the player 
 -- has reached the end of the path, processes accordingly
 function player.move(dt)
   if player.isMoving then
     if not player.there then
+      -- Walk to the assigned location
       player.moveToTile(player.path[player.cur].x,player.path[player.cur].y, dt)
     else
+      -- Make the next step move
       if player.path[player.cur+1] then
         player.cur = player.cur + 1
         player.there = false
       else
+        -- Reached the goal!
         player.isMoving = false
         player.path = nil
       end        
     end
+    -- Animate only when moving
     player.state[player.dir]:update(dt)
   end
 end
@@ -108,42 +112,50 @@ function player.moveToTile(goal_tile_x,goal_tile_y, dt)
   local goal_y = goal_tile_y*32-32
   
   -- Computes the unit vector of move
-  local dx = (goal_x-player.x)/math.abs(goal_x-player.x)
-  local dy = (goal_y-player.y)/math.abs(goal_y-player.y)
+  local vx = (goal_x-player.x)/math.abs(goal_x-player.x)
+  local vy = (goal_y-player.y)/math.abs(goal_y-player.y)
   
   -- Updates the direction of the move of the player
-  player.updateDirection(dx, dy, goal_tile_x,goal_tile_y) 
+  player.updateDirection(vx, vy, goal_tile_x,goal_tile_y) 
   
+  local dy, dx
   -- Moves on the player on y-axis
-  if player.y~=goal_y then
-    dy = dy > 0 and math.min(dy*dt*player.speed, goal_y-player.y) or math.max(dy*dt*player.speed, goal_y-player.y)
-    player.y = player.y + dy
+  if (player.y~=goal_y) then
+    dy = dt*player.speed*vy
+    if vy > 0 then
+      player.y = player.y + math.min(dy,goal_y-player.y)
+    else 
+      player.y = player.y + math.max(dy,goal_y-player.y)
+    end
   else
     player.y = goal_y
     reached_y = true
   end  
   
   -- Moves on the player on x-axis
-  if player.x ~= goal_x then
-    dx = dx > 0 and math.min(dx*dt*player.speed,goal_x-player.x) or math.max(dx*dt*player.speed,goal_x-player.x)
-    player.x = player.x + dx
+  if (player.x ~= goal_x) then
+    dx = dt*player.speed*vx
+    if vx > 0 then
+      player.x = player.x + math.min(dx,goal_x-player.x)
+    else
+      player.x = player.x + math.max(dx,goal_x-player.x)
+    end
   else 
     player.x = goal_x
     reached_x = true
-  end
-  
+  end  
   if (reached_x and reached_y) then player.there = true end   
 end
 
 -- Updates the player on each update cycle
 function player.update(dt)
   player.setTilePosition()
-  player.move(dt)  
+  player.move(dt)
 end
 
 -- Draws the player animation according to 
 -- the direction he is facing to. We are using here an offset of 16 
--- just for a better alignment of the player quad with our tiles
+-- on x-axis for a better alignment of the player quad with our tiles
 function player.draw()
   player.state[player.dir]:draw(player.image,player.x,player.y,0,1,1,16,0)
 end

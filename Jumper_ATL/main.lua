@@ -26,7 +26,7 @@ function love.load()
   
   -- Loading relevant libraries
   Jumper = require 'lib.Jumper'  
-  ATL = require("lib.AdvTiledLoader")
+  ATL = require 'lib.AdvTiledLoader'
   
   -- Configuring ATL for "tmx" map loading
   ATL.Loader.path = 'assets/maps/'
@@ -43,7 +43,8 @@ function love.load()
   
   -- WorldMap entity will handle camera translation
   -- translate_x/translate_y are the same as x,y properties, but floored down to integers
-  WorldMap = { x = 0, y = 0, scroll_speed = 250 }
+  -- scale refers to the scaling
+  WorldMap = { x = 0, y = 0, scroll_speed = 250, scale = 1}
   WorldMap.translate_x, WorldMap.translate_y = WorldMap.x, WorldMap.y
   
   -- Requires collision map making tool. Not directly related to Jumper,
@@ -58,8 +59,8 @@ function love.load()
   -- All tiles are 32-pixels wide (width, height). Function returns nil
   -- if we clicked out of the map bounds
   function WorldMap.toTile(x,y)
-    local _x = math.floor(x/32)
-    local _y = math.floor(y/32)
+    local _x = math.floor(x/(32*WorldMap.scale))
+    local _y = math.floor(y/(32*WorldMap.scale))
     if collision_map[_y] and collision_map[_y][_x] then 
       return _x,_y
     end
@@ -105,12 +106,12 @@ function love.draw()
   -- We are doing it here because we need to translate things (maps, objetcs)
   -- while keeping other things fixed (printed debug information)
   love.graphics.push() -- saves the default coordinates system
+    love.graphics.scale(WorldMap.scale) -- scales the view
     love.graphics.translate(WorldMap.translate_x, WorldMap.translate_y ) -- viewpoint scrolling on x/y-axis
-    map:autoDrawRange(WorldMap.translate_x, WorldMap.translate_y) -- sets the map drawing range
+    map:autoDrawRange(WorldMap.translate_x, WorldMap.translate_y, WorldMap.scale) -- sets the map drawing range
     map:draw() -- renders the map with ATL
     Debug.drawPath(font7, Player.path, drawPath) -- draws the path
   love.graphics.pop() -- restores the default coordinates system
-  
   love.graphics.setColor(255,255,255,255)
   Debug.printPathInfo(font12,10,580,printPathInfo) -- prints infos about the last path search
   
@@ -120,20 +121,20 @@ function love.draw()
   love.graphics.print(('[J]: Smooth Path (%s)'):format(tostring(smoothing)), 10,40)
   love.graphics.print(('[K]: Draw Path (%s)'):format(tostring(drawPath)), 10,55)
   love.graphics.print(('[W/A/S/D - Arrows]: Move camera'), 10,70)
-  love.graphics.print(('[Left Mouse]: Move character'), 10,85)
+  love.graphics.print(('[Left Mouse Button]: Move character'), 10,85)
+  love.graphics.print(('[Mouse Wheel]: Scale: %s'):format(WorldMap.scale), 10,100)
 end
 
 -- Mouse callback
 function love.mousepressed(x,y,button)
   if button == 'l' then
     -- Converts the clicked location on the screen to world coordinates
-    local map_location_x, map_location_y = x-WorldMap.translate_x, y-WorldMap.translate_y
+    local map_location_x, map_location_y = (x-(WorldMap.translate_x*WorldMap.scale)), (y-(WorldMap.translate_y*WorldMap.scale))
     -- Converts world coordinates to the corresponding tile
     local map_tile_x, map_tile_y = WorldMap.toTile(map_location_x, map_location_y)
     
     -- Processes a path search from the player location
     -- to the clicked location if this location is walkable
-
     if pather.grid:isWalkableAt(map_tile_x,map_tile_y) then
       local start_tick = love.timer.getMicroTime()*1000 -- Start time
       local path,length = pather:getPath(Player.tile_x, Player.tile_y, map_tile_x, map_tile_y)
@@ -150,6 +151,11 @@ function love.mousepressed(x,y,button)
       end
     else  printPathInfo = {} -- Clears informations about the current path request
     end
+  -- Scaling
+  elseif button == 'wu' then
+    if WorldMap.scale < 4 then WorldMap.scale = WorldMap.scale + 0.1 end
+  elseif button == 'wd' then 
+    if WorldMap.scale > 0.1 then WorldMap.scale = WorldMap.scale - 0.1 end
   end
 end
 
