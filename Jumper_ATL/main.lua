@@ -35,7 +35,7 @@ function love.load()
   -- with Tiled, and the starting tile is (0,0)
   map = ATL.Loader.load('map.tmx') 
   map.drawObjects = false
-  map.useSpriteBatch = false
+  map.useSpriteBatch = true
   
   -- Some fonts
   font7 = love.graphics.newFont(7)
@@ -172,5 +172,5 @@ function love.keypressed(key, unicode)
   -- We are using here the chaining feature of Jumper
   pather:setDiagonalMoves(allowDiagonal)
         :setHeuristic(heuristics[current_heuristic])
-        :setAutoSmoothing(smoothing)
+        :setAutoFill(smoothing)
 end
