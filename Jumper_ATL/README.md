@@ -1,4 +1,4 @@
-Jumper Examples with Love2D
+Jumper Demo (for Love2D)
 ===========================
 
 A showcase of [Jumper](https://github.com/Yonaba/Jumper) being used with [Advanced Tiled Loader](https://github.com/Kadoba/Advanced-Tiled-Loader/).
