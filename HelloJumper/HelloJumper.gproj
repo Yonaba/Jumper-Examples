@@ -1,0 +1,23 @@
+<project>
+ <properties autorotation="0" fps="60" scaleMode="0" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="480" logicalWidth="320" retinaDisplay="0" assetsOnly="0" orientation="0" architecture="0">
+  <imageScales/>
+ </properties>
+ <folder name="Jumper">
+  <folder name="core">
+   <folder name="third-party">
+    <folder name="Binary-Heaps">
+     <file source="Jumper/core/third-party/Binary-Heaps/binary_heap.lua"/>
+    </folder>
+    <folder name="30log">
+     <file source="Jumper/core/third-party/30log/30log.lua"/>
+    </folder>
+   </folder>
+   <file source="Jumper/core/node.lua"/>
+   <file source="Jumper/core/heuristics.lua"/>
+   <file source="Jumper/core/grid.lua"/>
+  </folder>
+  <file source="Jumper/init.lua"/>
+  <file source="Jumper/jumper.lua"/>
+ </folder>
+ <file source="main.lua"/>
+</project>
