@@ -1,4 +1,4 @@
-Jumper Examples with Gideros
+Jumper Examples (for Gideros)
 ============================
 
 Find here some examples of use and demos for [Jumper](https://github.com/Yonaba/Jumper) made with [Gideros](http://www.giderosmobile.com).
