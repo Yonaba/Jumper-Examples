@@ -1,4 +1,4 @@
-Jumper Examples with Corona
+Jumper Examples (for Corona)
 ===========================
 
 Find here some examples of use and demos for [Jumper](https://github.com/Yonaba/Jumper) made with [Corona](http://www.coronalabs.com) SDK.
