@@ -1,4 +1,4 @@
-Jumper Examples with Love2D
+Jumper Examples (for Love2D)
 ===========================
 
 Find here some examples of use and demos for [Jumper](https://github.com/Yonaba/Jumper) made with the [Love](http://love2d.org) framework (version *0.8.0* Codename *Rubber Piggy*).
