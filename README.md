@@ -13,6 +13,7 @@ git clone -b corona git://github.com/Yonaba/Jumper-Examples
 
 ###Download
 You can also download these files as a [zip](https://github.com/Yonaba/Jumper-Examples/zipball/corona) or [tarball](https://github.com/Yonaba/Jumper-Examples/tarball/corona).<br/>
+Find Corona projects packaged here : [Downloads](https://github.com/Yonaba/Jumper-Examples/downloads)
 
 ##Contribute
 Contributing with your own examples of use for [Jumper](https://github.com/Yonaba/Jumper) will be very appreciated. <br/>
