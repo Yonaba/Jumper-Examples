@@ -32,7 +32,8 @@ local walkable = 0
 local allowDiagonal = true
 local heuristic = 'MANHATTAN'
 local autoFill = false
-local pather = Jumper(map,walkable,allowDiagonal,heuristic,autoFill)
+local postProcess = false
+local pather = Jumper(map,walkable,allowDiagonal,heuristic,autoFill,postProcess)
 
 local sx,sy = 1,4
 local ex,ey = 5,4

@@ -13,6 +13,7 @@ git clone -b gideros git://github.com/Yonaba/Jumper-Examples
 
 ###Download
 You can also download these files as a [zip](https://github.com/Yonaba/Jumper-Examples/zipball/gideros) or [tarball](https://github.com/Yonaba/Jumper-Examples/tarball/gideros).<br/>
+Find Gideros packaged projects here: [Download](https://github.com/Yonaba/Jumper-Examples/downloads)
 
 ##Contribute
 Contributing with your own examples of use for [Jumper](https://github.com/Yonaba/Jumper) will be very appreciated. <br/>
