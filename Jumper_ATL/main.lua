@@ -23,7 +23,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -- Loading callback
 function love.load()
-  
+
   -- Loading relevant libraries
   Jumper = require 'lib.Jumper'  
   ATL = require 'lib.AdvTiledLoader'
@@ -70,8 +70,9 @@ function love.load()
   allowDiagonal = true -- whether or not diagonal moves are allowed
   heuristics = {'MANHATTAN','EUCLIDIAN','DIAGONAL'} -- valid distance heuristics names
   current_heuristic = 1 -- indexes the chosen heuristics within 'heuristics' table
-  smoothing = false -- whether or not returned paths will be smoothed
-  pather = Jumper(collision_map,0,allowDiagonal,heuristics[current_heuristic]) -- Inits Jumper
+  filling = false -- whether or not returned paths will be smoothed
+  postProcess = true -- whether or not the grid should be postProcessed
+  pather = Jumper(collision_map,0,allowDiagonal,heuristics[current_heuristic],filling,postProcess) -- Inits Jumper
     
   drawPath = false  -- whether or not the path will be drawn
   
@@ -118,7 +119,7 @@ function love.draw()
   -- Keys Directions
   love.graphics.print(('[U]: Allow Diagonal Moves (%s)'):format(tostring(allowDiagonal)), 10,10)
   love.graphics.print(('[H]: Heuristic (%s)'):format(heuristics[current_heuristic]), 10,25)
-  love.graphics.print(('[J]: Smooth Path (%s)'):format(tostring(smoothing)), 10,40)
+  love.graphics.print(('[J]: Smooth Path (%s)'):format(tostring(filling)), 10,40)
   love.graphics.print(('[K]: Draw Path (%s)'):format(tostring(drawPath)), 10,55)
   love.graphics.print(('[W/A/S/D - Arrows]: Move camera'), 10,70)
   love.graphics.print(('[Left Mouse Button]: Move character'), 10,85)
@@ -166,11 +167,11 @@ function love.keypressed(key, unicode)
     current_heuristic = (heuristics[current_heuristic+1] and current_heuristic+1 or 1) -- Changes the heuristic used
   end
   if key == 'k' then drawPath = not drawPath end -- switches the path drawing on/off
-  if key == 'j' then smoothing = not smoothing end -- switches path smoothing on/off
+  if key == 'j' then filling = not filling end -- switches path filling on/off
   
   -- Reconfigure the pather with new options
   -- We are using here the chaining feature of Jumper
   pather:setDiagonalMoves(allowDiagonal)
         :setHeuristic(heuristics[current_heuristic])
-        :setAutoFill(smoothing)
+        :setAutoFill(filling)
 end
