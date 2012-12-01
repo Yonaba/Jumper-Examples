@@ -67,13 +67,15 @@ function love.load()
   end
   
   -- Initializing Jumper
-  allowDiagonal = true -- whether or not diagonal moves are allowed
-  heuristics = {'MANHATTAN','EUCLIDIAN','DIAGONAL'} -- valid distance heuristics names
+  searchMode = 'DIAGONAL' -- whether or not diagonal moves are allowed
+  heuristics = {'MANHATTAN','EUCLIDIAN','DIAGONAL','CARDINTCARD'} -- valid distance heuristics names
   current_heuristic = 1 -- indexes the chosen heuristics within 'heuristics' table
   filling = false -- whether or not returned paths will be smoothed
-  postProcess = true -- whether or not the grid should be postProcessed
-  pather = Jumper(collision_map,0,allowDiagonal,heuristics[current_heuristic],filling,postProcess) -- Inits Jumper
-    
+  postProcess = false -- whether or not the grid should be postProcessed
+  pather = Jumper(collision_map,0, postProcess) -- Inits Jumper
+  pather:setMode(searchMode)
+  pather:setHeuristic(heuristics[current_heuristic])
+  pather:setAutoFill(filling)
   drawPath = false  -- whether or not the path will be drawn
   
   -- Provides a set of utilities to output useful informations
@@ -117,7 +119,7 @@ function love.draw()
   Debug.printPathInfo(font12,10,580,printPathInfo) -- prints infos about the last path search
   
   -- Keys Directions
-  love.graphics.print(('[U]: Allow Diagonal Moves (%s)'):format(tostring(allowDiagonal)), 10,10)
+  love.graphics.print(('[U]: Search Mode (%s)'):format(searchMode), 10,10)
   love.graphics.print(('[H]: Heuristic (%s)'):format(heuristics[current_heuristic]), 10,25)
   love.graphics.print(('[J]: Smooth Path (%s)'):format(tostring(filling)), 10,40)
   love.graphics.print(('[K]: Draw Path (%s)'):format(tostring(drawPath)), 10,55)
@@ -162,7 +164,7 @@ end
 
 -- Keyboard callback
 function love.keypressed(key, unicode)
-  if key == 'u' then allowDiagonal = not allowDiagonal end -- switches allowDiagonal on/off
+  if key == 'u' then searchMode = (searchMode == 'DIAGONAL' and 'ORTHOGONAL' or 'DIAGONAL') end -- changes search Mode on/off
   if key == 'h' then 
     current_heuristic = (heuristics[current_heuristic+1] and current_heuristic+1 or 1) -- Changes the heuristic used
   end
@@ -171,7 +173,7 @@ function love.keypressed(key, unicode)
   
   -- Reconfigure the pather with new options
   -- We are using here the chaining feature of Jumper
-  pather:setDiagonalMoves(allowDiagonal)
+  pather:setMode(searchMode)
         :setHeuristic(heuristics[current_heuristic])
         :setAutoFill(filling)
 end
