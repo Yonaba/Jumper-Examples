@@ -3,18 +3,11 @@
   <imageScales/>
  </properties>
  <folder name="Jumper">
-  <folder name="core">
-   <folder name="third-party">
-    <folder name="Binary-Heaps">
-     <file source="Jumper/core/third-party/Binary-Heaps/binary_heap.lua"/>
-    </folder>
-    <folder name="30log">
-     <file source="Jumper/core/third-party/30log/30log.lua"/>
-    </folder>
-   </folder>
+  <folder name="core">   
    <file source="Jumper/core/node.lua"/>
    <file source="Jumper/core/heuristics.lua"/>
    <file source="Jumper/core/grid.lua"/>
+   <file source="Jumper/core/bheap.lua"/>
   </folder>
   <file source="Jumper/init.lua"/>
   <file source="Jumper/jumper.lua"/>

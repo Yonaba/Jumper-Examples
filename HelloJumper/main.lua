@@ -28,13 +28,10 @@ local map = {
   {0,1,0,1,0},
   {0,1,0,0,0},
 }
-local walkable = 0
-local allowDiagonal = true
-local heuristic = 'MANHATTAN'
-local autoFill = false
-local postProcess = false
-local pather = Jumper(map,walkable,allowDiagonal,heuristic,autoFill,postProcess)
 
+local walkable = 0
+local postProcess = false
+local pather = Jumper(map,walkable,postProcess)
 local sx,sy = 1,4
 local ex,ey = 5,4
 print('Hello Jumper! from Gideros')
