@@ -32,3 +32,6 @@ Just fork the repository, add your changes and send a pull request.
 ##License##
 This work is under [MIT-LICENSE](http://www.opensource.org/licenses/mit-license.php)<br/>
 Copyright (c) 2012 Roland Yonaba <br/>.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Yonaba/jumper-examples/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
